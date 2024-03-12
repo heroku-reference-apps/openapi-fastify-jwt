@@ -121,11 +121,11 @@ curl \
 
 You can view API documentation at:
 
-https://<HEROKU-APP-URL/api-docs
+https://HEROKU-APP-URL/api-docs
 
 ## Working with Postman
 
-In Postman, click "Import", then (with the server running), paste in https://<HEROKU-APP-URL>/api-docs/yaml. Import this as a Postman Collection.
+In Postman, click "Import", then (with the server running), paste in https://HEROKU-APP-URL/api-docs/yaml. Import this as a Postman Collection.
 
 You can immediately send the `GET` directory request.
 
