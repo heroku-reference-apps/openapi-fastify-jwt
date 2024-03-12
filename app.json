@@ -1,0 +1,19 @@
+{
+  "name": "User Directory and Profile - Fastify with Authentication and OpenAPI",
+  "description": "A Fastify-backed Node.js application that demonstrates authentication (with JWTs using RSA256) and OpenAPI specification generation.",
+  "repository": "https://github.com/heroku-reference-apps/openapi-fastify-jwt",
+  "keywords": [
+    "nodejs",
+    "openapi",
+    "fastify",
+    "jwt",
+    "authentication",
+    "postgres"
+  ],
+  "addons": ["heroku-postgresql:mini"],
+  "env": {
+    "RSA_PUBLIC_KEY_BASE_64": {
+      "description": "RSA public key (base64) for verifying JWTs signed with the corresponding private key"
+    }
+  }
+}

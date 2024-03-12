@@ -1,0 +1,62 @@
+{
+  "name": "openapi-fastify-jwt",
+  "version": "1.0.0",
+  "description": "A sample Fastify API with RSA256 JWT authentication",
+  "type": "module",
+  "main": "app.js",
+  "license": "CC0-1.0",
+  "author": "Heroku DevRel <heroku-dev-advocacy@salesforce.com>",
+  "scripts": {
+    "start": "fastify start -a 0.0.0.0 -l info app.js",
+    "dev": "fastify start -w -l info -P app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prettier": "prettier --write .",
+    "prettier:verify": "prettier --check .",
+    "generate:jwt": "node utils/generate_jwt.js",
+    "prepare": "husky install",
+    "precommit": "lint-staged"
+  },
+  "dependencies": {
+    "@fastify/auth": "^4.6.0",
+    "@fastify/autoload": "^5.8.0",
+    "@fastify/jwt": "^8.0.0",
+    "@fastify/swagger": "^8.14.0",
+    "@fastify/swagger-ui": "^3.0.0",
+    "dotenv": "^16.4.4",
+    "fast-jwt": "^4.0.0",
+    "fastify": "^4.26.1",
+    "fastify-cli": "^6.1.1",
+    "fastify-plugin": "^4.5.1",
+    "js-yaml": "^4.1.0",
+    "pg": "^8.11.3",
+    "pino": "^8.19.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.19",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,md,json}": [
+      "prettier --write"
+    ]
+  },
+  "engines": {
+    "node": "20.x",
+    "npm": "10.x"
+  },
+  "volta": {
+    "node": "20.11.1",
+    "npm": "10.2.3"
+  }
+}
