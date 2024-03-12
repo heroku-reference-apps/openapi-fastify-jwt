@@ -15,7 +15,7 @@
     "prettier": "prettier --write .",
     "prettier:verify": "prettier --check .",
     "generate:jwt": "node utils/generate_jwt.js",
-    "prepare": "husky install",
+    "prepare": "husky",
     "precommit": "lint-staged"
   },
   "dependencies": {
@@ -29,9 +29,7 @@
     "fastify": "^4.26.1",
     "fastify-cli": "^6.1.1",
     "fastify-plugin": "^4.5.1",
-    "js-yaml": "^4.1.0",
-    "pg": "^8.11.3",
-    "pino": "^8.19.0"
+    "pg": "^8.11.3"
   },
   "devDependencies": {
     "@types/node": "^20.11.19",
