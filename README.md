@@ -9,6 +9,9 @@ This API has two routes.
 1. `GET /directory` is a public route. It returns a list of usernames from the database.
 2. `GET /profile` is an authenciated route, requiring an RSA256-signed JWT with a `username` in the payload. Then, it retrieves additional information about that user from the database.
 
+![Architecture](img/architecture.png)
+
+
 ## Create Heroku App
 
 First create a Heroku app to deploy this application by running:
