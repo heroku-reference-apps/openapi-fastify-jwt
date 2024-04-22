@@ -1,4 +1,4 @@
-# User Directory and Profile - Fastify with Authentication and OpenAPI
+# User Directory and Profile - Fastify OpenAPI with Authentication
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
