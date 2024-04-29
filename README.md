@@ -11,7 +11,6 @@ This API has two routes.
 
 ![Architecture](img/architecture.png)
 
-
 ## Create Heroku App
 
 First create a Heroku app to deploy this application by running:
@@ -107,7 +106,7 @@ To access the authenticated route (`/profile`), you need a JWT signed with the p
 An example of how to generate a JWT using the example private key:
 
 ```sh
-npm run generate:jwt utils/keys/private_key.example.rsa '{"username":"Jamarcus.Davis"}'
+npm run generate:jwt utils/keys/private_key.example.rsa '{"username":"aisha.upton"}'
 ```
 
 ## Send an authenticated `GET` request to `/profile`

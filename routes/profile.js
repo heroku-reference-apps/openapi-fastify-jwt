@@ -44,7 +44,7 @@ export default async function (fastify, _opts) {
       const { db } = fastify;
       const { username } = request.user;
       const sql =
-        'SELECT username, first_name as "firstName", last_name as "lastName", email FROM users WHERE username=$1';
+        'SELECT id, username, first_name as "firstName", last_name as "lastName", email FROM users WHERE username=$1';
       const rows = await db.query(sql, [username]);
       if (rows.length) {
         reply.code(200).type("application/json").send(rows[0]);

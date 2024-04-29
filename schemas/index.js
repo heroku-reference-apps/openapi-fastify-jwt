@@ -16,6 +16,10 @@ export const directorySchema = {
 export const profileSchema = {
   type: "object",
   properties: {
+    id: {
+      type: "string",
+      format: "uuid",
+    },
     username: {
       type: "string",
     },
@@ -27,6 +31,7 @@ export const profileSchema = {
     },
     email: {
       type: "string",
+      format: "email",
     },
   },
 };

@@ -71,6 +71,7 @@ describe("/profile route", async () => {
       });
 
       const MOCK_USER = {
+        id: "123e4567-e89b-12d3-a456-426614174111",
         username: "john.doe",
         firstName: "John",
         lastName: "Doe",
