@@ -25,19 +25,19 @@ Along with your basic Heroku app, you will need to use a PostgreSQL add-on.
 You can do it manually by running:
 
 ```sh
-heroku addons:create heroku-postgresql:mini
+heroku addons:create heroku-postgresql:essential-0
 ```
 
 Once your database is set up, you should run the SQL statements found in the following two files (in this order):
 
 1. `data/create_schema.sql` (which creates the `users` table)
-2. `data/create_records.sql` (which inserts 64 sample records into the `users` table)
+2. `data/create_records.sql` (which inserts 50 sample records into the `users` table)
 
 You can do it by running:
 
 ```sh
-heroku pg:psql < data/create_schema.sql
-heroku pg:psql < data/create_records.sql
+heroku pg:psql -f data/create_schema.sql
+heroku pg:psql -f data/create_records.sql
 ```
 
 Once you have the database up and running, Heroku will automatically add a config var called `DATABASE_URL`. This should contain all of the information you need for connecting to the database (in `plugins/db.js`).
