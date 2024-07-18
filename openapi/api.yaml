@@ -1,0 +1,104 @@
+openapi: 3.0.3
+info:
+  title: User Directory and Profile
+  description: Demonstrates Fastify with authenticated route using RSA256 JWT
+  version: 1.0.0
+components:
+  securitySchemes:
+    BearerAuth:
+      description: RSA256 JWT signed by private key, with username in payload
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    directory:
+      type: array
+      items:
+        type: object
+        properties:
+          username:
+            type: string
+      example:
+        - username: alice01
+        - username: bob02
+        - username: carol03
+    error:
+      type: object
+      properties:
+        statusCode:
+          type: number
+        error:
+          type: string
+        message:
+          type: string
+      required:
+        - statusCode
+        - error
+        - message
+    profile:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        username:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          format: email
+paths:
+  /directory:
+    get:
+      tags:
+        - user
+      description: Get alphabetized directory of usernames
+      responses:
+        "200":
+          description: All usernames
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/directory"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                description: Internal Server Error
+                $ref: "#/components/schemas/error"
+  /profile:
+    get:
+      tags:
+        - user
+      description: Get user's own profile with additional account attributes
+      security:
+        - BearerAuth: []
+      responses:
+        "200":
+          description: User profile
+          content:
+            application/json:
+              schema:
+                description: User profile
+                $ref: "#/components/schemas/profile"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                description: Not Found
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                description: Internal Server Error
+                $ref: "#/components/schemas/error"
+tags:
+  - name: user
+    description: User-related endpoints
