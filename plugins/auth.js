@@ -14,7 +14,7 @@ export default fp(async (fastify) => {
     "base64",
   ).toString("ascii");
   if (!publicKey) {
-    fastify.logger.error(
+    fastify.log.error(
       "Public key not found. Make sure env var `RSA_PUBLIC_KEY_BASE_64` is set.",
     );
   }
