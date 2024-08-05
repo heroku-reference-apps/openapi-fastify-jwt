@@ -38,7 +38,17 @@ export default async function (fastify, _opts) {
           },
         },
       },
-      onRequest: [fastify.auth([fastify.verifyJWT])],
+      onRequest: [
+        fastify.auth
+          ? fastify.auth([fastify.verifyJWT])
+          : (_request, reply) => {
+              reply.code(500).send({
+                error: "Internal Server Error",
+                message: "Auth plugin is not registered",
+                statusCode: 500,
+              });
+            },
+      ],
     },
     async (request, reply) => {
       const { db } = fastify;

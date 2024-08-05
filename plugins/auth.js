@@ -4,9 +4,10 @@ import auth from "@fastify/auth";
 
 export default fp(async (fastify) => {
   if (!process.env.RSA_PUBLIC_KEY_BASE_64) {
-    throw new Error(
+    fastify.log.error(
       "Environment variable `RSA_PUBLIC_KEY_BASE_64` is required",
     );
+    return;
   }
 
   const publicKey = Buffer.from(
@@ -17,6 +18,7 @@ export default fp(async (fastify) => {
     fastify.log.error(
       "Public key not found. Make sure env var `RSA_PUBLIC_KEY_BASE_64` is set.",
     );
+    return;
   }
 
   fastify.register(jwt, {
