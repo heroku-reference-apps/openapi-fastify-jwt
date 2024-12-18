@@ -7,7 +7,7 @@
   "license": "CC0-1.0",
   "author": "Heroku DevRel <heroku-dev-advocacy@salesforce.com>",
   "scripts": {
-    "start": "fastify start -a 0.0.0.0 -l info app.js",
+    "start": "fastify start -a :: -l info app.js",
     "dev": "fastify start -w -l info -P app.js",
     "test": "vitest --reporter=verbose --no-watch",
     "lint": "eslint .",
